@@ -13,4 +13,6 @@ public class Universite {
     private String nomUniversite ;
     private String adresse ;
 
+    @OneToOne
+    private Foyer foyer;
 }

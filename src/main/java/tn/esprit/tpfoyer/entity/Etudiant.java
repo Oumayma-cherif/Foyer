@@ -4,6 +4,7 @@ package tn.esprit.tpfoyer.entity;
 import jakarta.persistence.* ;
 import lombok.*;
 
+import java.util.Set;
 import java.util.Date;
 
 @Entity
@@ -22,7 +23,8 @@ public class Etudiant {
     private String ecole ;
     private Date  dateNaissance ;
 
-
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set <Reservation> reservations;
 
 
 

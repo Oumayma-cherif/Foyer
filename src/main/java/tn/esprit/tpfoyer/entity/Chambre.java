@@ -1,5 +1,5 @@
 package tn.esprit.tpfoyer.entity;
-
+import java.util.Set;
 import jakarta.persistence.* ;
 import lombok.*;
 @Entity
@@ -17,8 +17,10 @@ public class Chambre {
     private TypeChambre typeC ;
 
 
+    @ManyToOne
+   Bloc bloc ;
 
-
-
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Reservation> Reservations;
 
 }

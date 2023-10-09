@@ -4,6 +4,7 @@ package tn.esprit.tpfoyer.entity;
 import jakarta.persistence.* ;
 import lombok.*;
 
+import java.util.Set;
 import java.util.Date;
 
 @Entity
@@ -20,4 +21,6 @@ public class Reservation {
     private Boolean estValide ;
     private Date anneeUniversitaire ;
 
+    @ManyToMany(mappedBy="reservations", cascade = CascadeType.ALL)
+    private Set <Etudiant> etudiants;
 }
