@@ -22,4 +22,5 @@ public class Foyer {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="foyer")
     private Set<Bloc> Blocs;
+
 }
