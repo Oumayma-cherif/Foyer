@@ -21,6 +21,6 @@ public class Reservation {
     private Boolean estValide ;
     private Date anneeUniversitaire ;
 
-    @ManyToMany(mappedBy="reservations", cascade = CascadeType.ALL)
+    @ManyToMany
     private Set <Etudiant> etudiants;
 }

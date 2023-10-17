@@ -21,6 +21,6 @@ public class Foyer {
     private Universite universite;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="foyer")
-    private Set<Bloc> Bloc;
+    private Set<Bloc> Blocs;
 
 }
