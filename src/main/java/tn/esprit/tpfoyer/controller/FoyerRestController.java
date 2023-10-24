@@ -4,8 +4,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import tn.esprit.tpfoyer.entity.foyer;
-import tn.esprit.tpfoyer.service.IfoyerService;
+import tn.esprit.tpfoyer.entity.Foyer;
+import tn.esprit.tpfoyer.service.IFoyerService;
 
 import java.util.List;
 
@@ -30,7 +30,7 @@ public class FoyerRestController {
     @Operation(description = "récupérer les details du  foyer de la base de données")
     @GetMapping("/retrieve-foyer/{foyer-id}")
         public Foyer retrieveFoyer(@PathVariable("foyer-id") Long chid) {
-            Foyer foyer = foyerService.retrievefoyer (chid);
+            Foyer foyer = foyerService.retrieveFoyer (chid);
             return foyer;
 
     }
