@@ -11,5 +11,5 @@ public interface ChambreRepository extends JpaRepository<Chambre,Long> {
 
 
     Chambre findChambreByNumeroChambre (long numC);
-    List<Chambre> findAllByTypeChambre(TypeChambre tc) ;
+    List<Chambre> findAllByTypeC(TypeChambre tc) ;
 }

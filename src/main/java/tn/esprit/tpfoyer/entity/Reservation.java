@@ -15,9 +15,8 @@ import java.util.Date;
 
 public class Reservation {
     @Id
-    @GeneratedValue
-    @Column (name = "idReservation" , nullable = false)
-    private String idReservation ;
+
+     private String idReservation ;
     private Boolean estValide ;
     private Date anneeUniversitaire ;
 
