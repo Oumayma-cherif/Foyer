@@ -25,13 +25,13 @@ public class UniversiteRestController {
         return listUniversites;
 
     }
- //http://localhost:8089/tpfoyer/universite/retrieve-universite/8
+    //http://localhost:8089/tpfoyer/universite/retrieve-universite/8
 
     @Operation(description = "récupérer les details du  universite de la base de données")
     @GetMapping("/retrieve-universite/{universite-id}")
-        public Universite retrieveUniversite(@PathVariable("universite-id") Long chid) {
-            Universite universite = universiteService.retrieveUniversite (chid);
-            return universite;
+    public Universite retrieveUniversite(@PathVariable("universite-id") Long chid) {
+        Universite universite = universiteService.retrieveUniversite (chid);
+        return universite;
 
     }
     // http://localhost:8089/tpfoyer/universite/add-universite

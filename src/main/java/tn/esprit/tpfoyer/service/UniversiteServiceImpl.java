@@ -12,28 +12,31 @@ import java.util.List;
 @AllArgsConstructor
 public class UniversiteServiceImpl implements IUniversiteService {
     UniversiteRepository universiteRepository;
-  public List<Universite> retrieveAllUniversites() {
+    public List<Universite> retrieveAllUniversites() {
 
-      return universiteRepository. findAll();
+        return (List<Universite>) universiteRepository. findAll();
     }
-  public Universite retrieveUniversite(Long UniversiteId) {
-      return universiteRepository. findById(UniversiteId).get();
-  }
+    public Universite retrieveUniversite(Long UniversiteId) {
 
- public Universite addUniversite(Universite c) {
-      return universiteRepository.save(c);
- }
- public void removeUniversite(Long universiteId) {
-     universiteRepository.deleteById (universiteId);
-     }
- public Universite modifyUniversite(Universite universite) {
+        return universiteRepository. findById(UniversiteId).get();
+    }
 
-     return universiteRepository.save(universite);
+    public Universite addUniversite(Universite c) {
 
-         }
+        return universiteRepository.save(c);
+    }
+    public void removeUniversite(Long universiteId) {
+
+        universiteRepository.deleteById (universiteId);
+    }
+    public Universite modifyUniversite(Universite universite) {
+
+        return universiteRepository.save(universite);
+
+    }
 
 
 
- }
+}
 
 

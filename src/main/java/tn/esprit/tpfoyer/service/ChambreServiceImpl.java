@@ -17,14 +17,17 @@ public class ChambreServiceImpl implements IChambreService {
       return chambreRepository. findAll();
     }
   public Chambre retrieveChambre(Long ChambreId) {
+
       return chambreRepository. findById(ChambreId).get();
   }
 
  public Chambre addChambre(Chambre c) {
+
       return chambreRepository.save(c);
  }
  public void removeChambre(Long chambreId) {
-     chambreRepository.deleteById (chambreId);
+
+      chambreRepository.deleteById (chambreId);
      }
  public Chambre modifyChambre(Chambre chambre) {
 

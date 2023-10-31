@@ -15,7 +15,7 @@ public class ReservationServiceImpl implements IReservationService {
     ReservationRepository reservationRepository;
   public List<Reservation> retrieveAllReservations() {
 
-      return reservationRepository.findAll();
+      return (List<Reservation>) reservationRepository.findAll();
     }
   public Reservation retrieveReservation(Long ReservationId) {
       return reservationRepository. findById(ReservationId).get();

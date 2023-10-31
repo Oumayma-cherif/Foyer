@@ -14,7 +14,7 @@ public class FoyerServiceImpl implements IFoyerService {
     FoyerRepository foyerRepository;
   public List<Foyer> retrieveAllFoyers() {
 
-      return foyerRepository. findAll();
+      return (List<Foyer>) foyerRepository. findAll();
     }
   public Foyer retrieveFoyer(Long FoyerId) {
       return foyerRepository. findById(FoyerId).get();
