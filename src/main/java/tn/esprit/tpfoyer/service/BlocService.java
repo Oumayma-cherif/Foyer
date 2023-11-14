@@ -17,4 +17,7 @@ List<Bloc>getallBlocs();
 Bloc blocByid(Long id);
 
 void deleteBloc(Long id);
+   Bloc addBlocAndFoyerAndAssign(Bloc bloc);
+   public  Bloc DesaffecterBlocFromFoyer(Long Id) ;
+
 }

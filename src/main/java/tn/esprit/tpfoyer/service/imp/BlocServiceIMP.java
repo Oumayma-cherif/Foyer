@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RestController;
 import tn.esprit.tpfoyer.entity.Bloc;
+import tn.esprit.tpfoyer.entity.Foyer;
 import tn.esprit.tpfoyer.repository.BlocRepository;
 import tn.esprit.tpfoyer.service.BlocService;
 
@@ -52,4 +53,19 @@ public class BlocServiceIMP implements BlocService {
         return  listB ;
 
     }
+    public Bloc addBlocAndFoyerAndAssign(Bloc bloc){
+        return blocRepository.save(bloc);
+    }
+
+    @Override
+    public Bloc DesaffecterBlocFromFoyer(Long Id) {
+        return null;
+    }
+
+    public Bloc DesaffecterbloclFromFoyer(Long blocId) {
+        Bloc bloc = blocRepository.findById(blocId).get();
+        bloc.setFoyer(null);
+        return blocRepository.save(bloc);
+    }
+
 }

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.entity.Bloc;
 import tn.esprit.tpfoyer.repository.BlocRepository;
 
+import tn.esprit.tpfoyer.service.BlocService;
 import tn.esprit.tpfoyer.service.imp.BlocServiceIMP;
 
 import java.util.HashMap;
@@ -56,4 +57,16 @@ public class BlocController {
         }
         return message;
     }
+    //http://localhost:8089/Foyer/foyer/add-Bloc-And-Foyer-And-Assign
+      @PostMapping("/add-Bloc-And-Foyer-And-Assign")
+    public Bloc addBlocAndFoyerAndAssign (@RequestBody Bloc b) {
+        Bloc bloc = blocServiceIMP.addBlocAndFoyerAndAssign(b);
+        return bloc;
+    }
+    // http://localhost:8089/Tp8/projet/desaffecter-projet-detail/1
+    @PutMapping("/desafectter-projet-detail-du-projet/{projet-id}")
+    public void DesaffecterProjetDetailFromProjet(Long blocId) {
+        blocServiceIMP.DesaffecterbloclFromFoyer(blocId);
+    }
+
 }
