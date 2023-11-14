@@ -4,16 +4,13 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
-
+@ToString
 @Getter
 @Setter
 @NoArgsConstructor
@@ -33,6 +30,7 @@ public class Bloc {
     /*------------------------------*/
 
     @OneToMany (mappedBy = "bloc" , cascade = CascadeType.ALL)
+    @ToString.Exclude
     private Collection<Chamber> chambers;
     /*-----------------------*/
 

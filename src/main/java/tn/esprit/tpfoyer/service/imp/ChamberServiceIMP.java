@@ -1,6 +1,8 @@
 package tn.esprit.tpfoyer.service.imp;
 
+import ch.qos.logback.core.util.FixedDelay;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.RestController;
 import tn.esprit.tpfoyer.entity.Chamber;
 import tn.esprit.tpfoyer.repository.ChamberRepository;
@@ -37,4 +39,5 @@ public class ChamberServiceIMP implements ChamberService {
         chamberRepository.deleteById(id);
 
     }
+
 }
