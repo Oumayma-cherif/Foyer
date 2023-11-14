@@ -1,29 +1,41 @@
 package tn.esprit.tpfoyer.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.* ;
-import lombok.*;
-import lombok.ToString.Exclude;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import java.util.Set;
-
+import java.io.Serializable;
+import java.util.Collection;
 
 @Entity
+
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
+@Table(name="Bloc")
 public class Bloc {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idBloc ;
-    private String nomBloc ;
-    private Long capaciteBloc ;
+    private Long IdBloc;
+    private String NomBloc;
+    private Long CapaciteBloc;
 
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy="bloc")
-    private Set<Chambre> Chambres;
-
+    /*-----------------------------------*/
     @ManyToOne
-    Foyer foyer ;
+    @JoinColumn(name="foyer_id")
+    private Foyer foyer;
+    /*------------------------------*/
+
+    @OneToMany (mappedBy = "bloc" , cascade = CascadeType.ALL)
+    private Collection<Chamber> chambers;
+    /*-----------------------*/
+
+
+
 }

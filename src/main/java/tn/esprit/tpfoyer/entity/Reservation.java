@@ -1,25 +1,30 @@
 package tn.esprit.tpfoyer.entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-import jakarta.persistence.* ;
-import lombok.*;
-
-import java.util.Set;
+import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
-
 @Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-
-public class Reservation {
+@AllArgsConstructor
+@Table(name="Reservation")
+public class Reservation implements Serializable
+{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private String IdReservation;
+    private Date AnneeUniversitaire;
+    private boolean estValide;
 
-     private String idReservation ;
-    private Boolean estValide ;
-    private Date anneeUniversitaire ;
 
-    @ManyToMany
-    private Set <Etudiant> etudiants;
+    @ManyToMany(mappedBy = "reservations",cascade = CascadeType.ALL)
+    private Collection<Etudiant> etudiants ;
+
 }

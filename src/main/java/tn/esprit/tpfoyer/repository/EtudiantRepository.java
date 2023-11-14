@@ -1,7 +1,9 @@
 package tn.esprit.tpfoyer.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import tn.esprit.tpfoyer.entity.Etudiant;
 
-public interface EtudiantRepository extends CrudRepository<Etudiant,Long> {
+@Repository
+public interface EtudiantRepository extends JpaRepository<Etudiant,Long> {
 }
