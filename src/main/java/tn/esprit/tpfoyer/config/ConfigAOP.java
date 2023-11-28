@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 
 public class ConfigAOP {
-    @Before("execution(* tn.esprit.tpfoyer.service.*.*(..))")
+    @Before("execution(* tn.esprit.tpfoyer.service.*.*.*(..))")
     public void logMethodEntry(JoinPoint joinPoint) {
         String name = joinPoint.getSignature().getName();
         log.info("In method " + name + " : ");
