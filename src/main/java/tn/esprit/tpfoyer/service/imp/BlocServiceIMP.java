@@ -44,16 +44,16 @@ public class BlocServiceIMP implements BlocService {
     blocRepository.deleteById(id);
 
     }
-    @Scheduled (fixedDelay = 10000)
-    public  List<Bloc> getallBloc () {
-        List<Bloc> listB = blocRepository.findAll();
-        log.info("nombre total des blocs :" + listB.size());
-        for (Bloc b :listB) {
-            log.info("Bloc: " + b );
-        }
-        return  listB ;
+   // @Scheduled (fixedDelay = 10000)
+   // public  List<Bloc> getallBloc () {
+    //    List<Bloc> listB = blocRepository.findAll();
+      //  log.info("nombre total des blocs :" + listB.size());
+     //   for (Bloc b :listB) {
+      //      log.info("Bloc: " + b );
+      //  }
+     //   return  listB ;
 
-    }
+   // }
     public Bloc addBlocAndFoyerAndAssign(Bloc bloc){
         return blocRepository.save(bloc);
     }
@@ -68,5 +68,15 @@ public class BlocServiceIMP implements BlocService {
         bloc.setFoyer(null);
         return blocRepository.save(bloc);
     }
-
+    @Override
+    @Scheduled(fixedRate = 120000)
+    public void reportUnassignedBlocks() {
+        List<Bloc> unassignedBlocks = blocRepository.findAllByFoyerIsNull();
+        if (unassignedBlocks.isEmpty()) {
+            log.info("No unassigned blocks found at this time.");
+        } else {
+            log.info("Unassigned blocks:");
+            unassignedBlocks.forEach(block -> log.info("Unassigned bloc: {}", block));
+        }
+    }
 }
