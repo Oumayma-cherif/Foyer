@@ -10,6 +10,8 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Aspect
 
+
+
 public class ConfigAOP {
     @Before("execution(* tn.esprit.tpfoyer.service.*.*.*(..))")
     public void logMethodEntry(JoinPoint joinPoint) {
